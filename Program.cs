@@ -13,6 +13,13 @@ namespace UnleashedSignatureSigner
             {
                 Console.Write("\nEnter URL query: ");
                 string urlQuery = Console.ReadLine()!;
+                if (urlQuery.Contains("?"))  // split and only use query to generate signature
+                {
+                    urlQuery = urlQuery.Split("?")[1];
+                } else if (urlQuery.Contains(":"))  // https:// (from colon presence) but not ? means empty query
+                {
+                    urlQuery = "";
+                }
                 Console.WriteLine(GetSignature(urlQuery, privateKey));
             }
         }
