@@ -7,12 +7,12 @@ namespace UnleashedSignatureSigner
         static void Main(string[] args)
         {
             Console.Write("Enter API key: ");
-            string privateKey = Console.ReadLine();
+            string privateKey = Console.ReadLine()!;
             Console.Clear();
             while (true)
             {
                 Console.Write("\nEnter URL query: ");
-                string urlQuery = Console.ReadLine();
+                string urlQuery = Console.ReadLine()!;
                 Console.WriteLine(GetSignature(urlQuery, privateKey));
             }
         }
